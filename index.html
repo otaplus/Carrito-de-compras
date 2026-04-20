@@ -972,7 +972,13 @@
                     <li>Guarda tus facturas regularly en el historial</li>
                     <li>Exporta un backup de vez en cuando</li>
                     <li>La tasa de cambio se actualiza automáticamente cada hora</li>
+                    <li>Cierra burbujas o apps flotantes antes de escanear códigos de barras</li>
                 </ul>
+            </div>
+            <div class="instructions-section">
+                <h3>📱 Instalar en Teléfono</h3>
+                <p>Si no aparece la opción automática para instalar la app, presiona el botón abajo:</p>
+                <button class="btn btn-primary" id="installBtn" style="display: none;">Instalar App</button>
             </div>
             <p class="footer-text">¡Disfruta usando la app! 🛒</p>
         </div>
@@ -1693,11 +1699,11 @@
                     this.scanForBarcode(video);
                 } catch (e) {
                     console.error('Error de cámara:', e);
-                    this.showToast('Error: ' + e.message);
+                    this.showToast('Error: Cierra burbujas/superposiciones y permite cámara en ajustes.');
                     
                     if (e.name === 'NotAllowedError') {
-                        this.showToast('Permiso de cámara denegado. Actívalo en ajustes.');
-                        alert('Para usar el escáner, permite el acceso a la cámara en los ajustes del navegador.');
+                        this.showToast('Permiso de cámara denegado. Cierra burbujas/superposiciones y activa en ajustes.');
+                        alert('Para usar el escáner, cierra cualquier burbuja o app flotante, permite el acceso a la cámara en los ajustes del navegador.');
                     }
                     
                     this.stopScanner();
@@ -1942,6 +1948,31 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             App.init();
+            
+            let deferredPrompt;
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                const installBtn = document.getElementById('installBtn');
+                if (installBtn) {
+                    installBtn.style.display = 'block';
+                }
+            });
+
+            document.getElementById('installBtn').addEventListener('click', () => {
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    deferredPrompt.userChoice.then((choiceResult) => {
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('User accepted the install prompt');
+                            document.getElementById('installBtn').style.display = 'none';
+                        } else {
+                            console.log('User dismissed the install prompt');
+                        }
+                        deferredPrompt = null;
+                    });
+                }
+            });
             
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('sw.js')
