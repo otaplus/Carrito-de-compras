@@ -417,6 +417,11 @@
             font-weight: 600;
         }
 
+        .inventory-item-brand {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
         .inventory-item-barcode {
             font-size: 12px;
             color: var(--text-light);
@@ -527,6 +532,41 @@
             border-radius: 12px;
         }
 
+        .form-group input[type="file"] {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            background: var(--bg);
+            cursor: pointer;
+        }
+
+        .image-preview {
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        .image-preview img {
+            max-width: 120px;
+            max-height: 120px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .inventory-item-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-right: 12px;
+        }
+
+        .inventory-item-with-img {
+            display: flex;
+            align-items: center;
+        }
+
         .loading-spinner {
             display: none;
             text-align: center;
@@ -574,6 +614,222 @@
             padding: 40px 20px;
             color: var(--text-light);
         }
+
+        .history-header {
+            margin-bottom: 16px;
+        }
+
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .history-item {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .history-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .history-date {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--primary);
+        }
+
+        .history-time {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .history-delete {
+            background: none;
+            border: none;
+            color: var(--danger);
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .history-products {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .history-product-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        .history-product-name {
+            flex: 1;
+            margin-right: 8px;
+        }
+
+        .history-product-qty {
+            color: var(--text-light);
+            min-width: 30px;
+        }
+
+        .history-product-total {
+            font-weight: 600;
+            text-align: right;
+            min-width: 80px;
+        }
+
+        .history-totals {
+            border-top: 1px solid var(--border);
+            padding-top: 12px;
+        }
+
+        .history-total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .history-total-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .history-total-label {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .history-total-value {
+            font-weight: 600;
+        }
+
+        .history-total-value.bs {
+            color: var(--accent);
+        }
+
+        .history-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-light);
+        }
+
+        .history-empty svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .backup-section {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .backup-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .backup-buttons .btn {
+            flex: 1;
+        }
+
+        .instructions-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .profile-section {
+            text-align: center;
+            background: var(--card);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .profile-avatar {
+            font-size: 64px;
+            margin-bottom: 12px;
+        }
+
+        .profile-section h2 {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .profile-title {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .intro-text {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .instructions-section, .tips-section {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .instructions-section h3, .tips-section h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        .instructions-list, .tips-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .instructions-list li, .tips-list li {
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .instructions-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .tips-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 16px;
+            color: var(--text-light);
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -588,7 +844,7 @@
                 <circle cx="11" cy="11" r="8"></circle>
                 <path d="M21 21l-4.35-4.35"></path>
             </svg>
-            <input type="text" id="searchInput" placeholder="Buscar producto..." autocomplete="off">
+            <input type="text" id="searchInput" placeholder="Buscar producto..." autocomplete="off" inputmode="search">
         </div>
         <div class="search-results" id="searchResults"></div>
 
@@ -621,12 +877,22 @@
                 <input type="text" id="productName" placeholder="Ej: Arroz Maria">
             </div>
             <div class="form-group">
+                <label>Marca (opcional)</label>
+                <input type="text" id="productBrand" placeholder="Ej: Diana">
+            </div>
+            <div class="form-group">
                 <label>Precio (USD)</label>
-                <input type="number" id="productPrice" placeholder="0.00" step="0.01" min="0">
+                <input type="number" id="productPrice" placeholder="0.00" step="0.01" min="0" inputmode="decimal">
+            </div>
+            <div class="form-group">
+                <label>Foto del producto (opcional)</label>
+                <input type="file" id="productImage" accept="image/*" capture="environment">
+                <input type="hidden" id="productImageData">
+                <div id="imagePreview" class="image-preview"></div>
             </div>
             <div class="form-group">
                 <label>Código de barras (opcional)</label>
-                <input type="text" id="productBarcode" placeholder="Código de barras">
+                <input type="text" id="productBarcode" placeholder="Código de barras" inputmode="numeric">
                 <div style="display: flex; gap: 8px; margin-top: 8px;">
                     <button class="btn btn-scan" id="scanBtn" style="flex: 1;">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px">
@@ -654,6 +920,77 @@
         </div>
     </div>
 
+    <div id="instrucciones" class="tab-content">
+        <div class="instructions-content">
+            <div class="profile-section">
+                <div class="profile-avatar">👨‍💻</div>
+                <h2>Isaac</h2>
+                <p class="profile-title">Programador</p>
+            </div>
+            <p class="intro-text">Hola, soy Isaac, programador y te presento esta aplicación para hacer más fácil las compras!</p>
+            <div class="instructions-section">
+                <h3>📱 Cómo usar la app</h3>
+                <ul class="instructions-list">
+                    <li>
+                        <strong>Agregar productos:</strong>
+                        Ve a la pestaña "Inventario", completa los datos del producto y guárdalo.
+                    </li>
+                    <li>
+                        <strong>Crear factura:</strong>
+                        En "Facturación", busca productos y agrégalos a tu carrito.
+                    </li>
+                    <li>
+                        <strong>Control de cantidad:</strong>
+                        Usa los botones + y - para aumentar o disminuir cantidades.
+                    </li>
+                    <li>
+                        <strong>Guardar compras:</strong>
+                        Ve a "Historial" para guardar y revisar tus compras anteriores.
+                    </li>
+                    <li>
+                        <strong>Escanear códigos:</strong>
+                        Usa el botón de escáner en "Inventario" para buscar productos por código de barras.
+                    </li>
+                    <li>
+                        <strong>Respaldos:</strong>
+                        Exporta tus datos para no perder información.
+                    </li>
+                </ul>
+            </div>
+            <div class="tips-section">
+                <h3>💡 Consejos</h3>
+                <ul class="tips-list">
+                    <li>Agrega fotos a tus productos para identificarlos más rápido</li>
+                    <li>Guarda tus facturas regularly en el historial</li>
+                    <li>Exporta un backup de vez en cuando</li>
+                    <li>La tasa de cambio se actualiza automáticamente cada hora</li>
+                </ul>
+            </div>
+            <p class="footer-text">¡Disfruta usando la app! 🛒</p>
+        </div>
+    </div>
+
+    <div id="historial" class="tab-content">
+        <div class="history-header">
+            <button class="btn btn-secondary" id="saveHistoryBtn">Guardar Compra Actual</button>
+        </div>
+        <div class="backup-section">
+            <div class="backup-buttons">
+                <button class="btn btn-primary" id="exportBtn">Exportar Datos</button>
+                <button class="btn" id="importBtn" style="background: #64748b; color: white;">Importar Datos</button>
+            </div>
+            <input type="file" id="importFile" accept=".json" style="display: none;">
+        </div>
+        <div class="history-list" id="historyList"></div>
+        <div class="history-empty" id="historyEmpty">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+            <p>No hay compras guardadas</p>
+            <p>Guarda tu factura actual para ver el historial</p>
+        </div>
+    </div>
+
     <nav class="nav-tabs">
         <button class="nav-tab active" data-tab="facturacion">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -661,11 +998,23 @@
             </svg>
             Facturación
         </button>
+        <button class="nav-tab" data-tab="historial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+            Historial
+        </button>
         <button class="nav-tab" data-tab="inventario">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
             </svg>
             Inventario
+        </button>
+        <button class="nav-tab" data-tab="instrucciones">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Instrucciones
         </button>
     </nav>
 
@@ -677,12 +1026,22 @@
                 <input type="text" id="editProductName">
             </div>
             <div class="form-group">
+                <label>Marca</label>
+                <input type="text" id="editProductBrand">
+            </div>
+            <div class="form-group">
                 <label>Precio (USD)</label>
-                <input type="number" id="editProductPrice" step="0.01" min="0">
+                <input type="number" id="editProductPrice" step="0.01" min="0" inputmode="decimal">
+            </div>
+            <div class="form-group">
+                <label>Foto del producto</label>
+                <input type="file" id="editProductImage" accept="image/*" capture="environment">
+                <input type="hidden" id="editProductImageData">
+                <div id="editImagePreview" class="image-preview"></div>
             </div>
             <div class="form-group">
                 <label>Código de barras</label>
-                <input type="text" id="editProductBarcode">
+                <input type="text" id="editProductBarcode" inputmode="numeric">
             </div>
             <button class="btn btn-primary" id="saveEditBtn">Guardar Cambios</button>
             <button class="btn" style="margin-top: 8px; background: var(--border);" id="cancelEditBtn">Cancelar</button>
@@ -701,6 +1060,7 @@
         const App = {
             inventory: [],
             invoice: [],
+            history: [],
             exchangeRate: 0,
             editingIndex: null,
 
@@ -716,12 +1076,16 @@
                 const savedInventory = localStorage.getItem('carrito_inventory');
                 const savedInvoice = localStorage.getItem('carrito_invoice');
                 const savedRate = localStorage.getItem('carrito_rate');
+                const savedHistory = localStorage.getItem('carrito_history');
 
                 if (savedInventory) {
                     this.inventory = JSON.parse(savedInventory);
                 }
                 if (savedInvoice) {
                     this.invoice = JSON.parse(savedInvoice);
+                }
+                if (savedHistory) {
+                    this.history = JSON.parse(savedHistory);
                 }
                 if (savedRate) {
                     const rateData = JSON.parse(savedRate);
@@ -735,6 +1099,7 @@
             saveData() {
                 localStorage.setItem('carrito_inventory', JSON.stringify(this.inventory));
                 localStorage.setItem('carrito_invoice', JSON.stringify(this.invoice));
+                localStorage.setItem('carrito_history', JSON.stringify(this.history));
             },
 
             saveRate() {
@@ -814,6 +1179,10 @@
                     this.addProduct();
                 });
 
+                document.getElementById('productImage').addEventListener('change', (e) => {
+                    this.handleImageUpload(e.target);
+                });
+
                 document.getElementById('scanBtn').addEventListener('click', () => {
                     this.startScanner();
                 });
@@ -837,6 +1206,74 @@
                 document.getElementById('cancelEditBtn').addEventListener('click', () => {
                     this.closeEditModal();
                 });
+
+                document.getElementById('editProductImage').addEventListener('change', (e) => {
+                    this.handleEditImageUpload(e.target);
+                });
+
+                document.getElementById('saveHistoryBtn').addEventListener('click', () => {
+                    this.saveToHistory();
+                });
+
+                document.getElementById('exportBtn').addEventListener('click', () => {
+                    this.exportData();
+                });
+
+                document.getElementById('importBtn').addEventListener('click', () => {
+                    document.getElementById('importFile').click();
+                });
+
+                document.getElementById('importFile').addEventListener('change', (e) => {
+                    this.importData(e);
+                });
+            },
+
+            exportData() {
+                const data = {
+                    version: '1.0',
+                    timestamp: Date.now(),
+                    inventory: this.inventory,
+                    history: this.history
+                };
+
+                const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `carrito-sv-backup-${new Date().toISOString().split('T')[0]}.json`;
+                a.click();
+                URL.revokeObjectURL(url);
+
+                this.showToast('Datos exportados');
+            },
+
+            async importData(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+
+                try {
+                    const text = await file.text();
+                    const data = JSON.parse(text);
+
+                    if (!data.inventory || !Array.isArray(data.inventory)) {
+                        throw new Error('Archivo inválido');
+                    }
+
+                    if (confirm('Esto reemplazará tu inventario actual. ¿Continuar?')) {
+                        this.inventory = data.inventory;
+                        if (data.history) {
+                            this.history = data.history;
+                        }
+                        this.saveData();
+                        this.renderInventory();
+                        this.renderHistory();
+                        this.showToast('Datos importados');
+                    }
+                } catch (err) {
+                    this.showToast('Error: ' + err.message);
+                }
+
+                e.target.value = '';
             },
 
             switchTab(tabId) {
@@ -849,9 +1286,128 @@
 
                 if (tabId === 'inventario') {
                     this.renderInventory();
+                } else if (tabId === 'historial') {
+                    this.renderHistory();
                 } else {
                     this.renderInvoice();
                 }
+            },
+
+            saveToHistory() {
+                if (this.invoice.length === 0) {
+                    this.showToast('No hay productos para guardar');
+                    return;
+                }
+
+                const now = new Date();
+                const dateStr = now.toLocaleDateString('es-VE', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                const timeStr = now.toLocaleTimeString('es-VE', {
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+
+                const items = this.invoice.map(item => {
+                    const product = this.inventory[item.productIndex];
+                    return {
+                        productIndex: item.productIndex,
+                        quantity: item.quantity,
+                        unitPrice: product.price,
+                        total: product.price * item.quantity
+                    };
+                });
+
+                const totalUSD = items.reduce((sum, item) => sum + item.total, 0);
+                const totalBS = totalUSD * this.exchangeRate;
+
+                this.history.unshift({
+                    date: dateStr,
+                    time: timeStr,
+                    timestamp: now.getTime(),
+                    items: items,
+                    totalUSD: totalUSD,
+                    totalBS: totalBS,
+                    exchangeRate: this.exchangeRate
+                });
+
+                this.saveData();
+                this.renderHistory();
+                this.showToast('Compra guardada en historial');
+            },
+
+            deleteFromHistory(index) {
+                if (confirm('¿Eliminar esta compra del historial?')) {
+                    this.history.splice(index, 1);
+                    this.saveData();
+                    this.renderHistory();
+                }
+            },
+
+            renderHistory() {
+                const listContainer = document.getElementById('historyList');
+                const emptyContainer = document.getElementById('historyEmpty');
+
+                if (this.history.length === 0) {
+                    listContainer.innerHTML = '';
+                    emptyContainer.style.display = 'block';
+                    return;
+                }
+
+                emptyContainer.style.display = 'none';
+
+                listContainer.innerHTML = this.history.map((purchase, index) => {
+                    const products = purchase.items.map(item => {
+                        const product = this.inventory[item.productIndex];
+                        if (!product) return '';
+                        return `
+                            <div class="history-product-row">
+                                <span class="history-product-name">${product.name}</span>
+                                <span class="history-product-qty">x${item.quantity}</span>
+                                <span class="history-product-total">$${item.total.toFixed(2)}</span>
+                            </div>
+                        `;
+                    }).join('');
+
+                    return `
+                        <div class="history-item">
+                            <div class="history-header-row">
+                                <div>
+                                    <div class="history-date">${purchase.date}</div>
+                                    <div class="history-time">${purchase.time}</div>
+                                </div>
+                                <button class="history-delete" data-index="${index}">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="history-products">${products}</div>
+                            <div class="history-totals">
+                                <div class="history-total-row">
+                                    <span class="history-total-label">Total USD:</span>
+                                    <span class="history-total-value">$${purchase.totalUSD.toFixed(2)}</span>
+                                </div>
+                                <div class="history-total-row">
+                                    <span class="history-total-label">Total BS:</span>
+                                    <span class="history-total-value bs">Bs ${purchase.totalBS.toLocaleString('es-VE', { minimumFractionDigits: 2 })}</span>
+                                </div>
+                                <div class="history-total-row">
+                                    <span class="history-total-label">Tasa:</span>
+                                    <span class="history-total-value">Bs ${purchase.exchangeRate.toLocaleString('es-VE')}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                listContainer.querySelectorAll('.history-delete').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        this.deleteFromHistory(parseInt(btn.dataset.index));
+                    });
+                });
             },
 
             handleSearch(query) {
@@ -935,8 +1491,10 @@
 
             addProduct() {
                 const name = document.getElementById('productName').value.trim();
+                const brand = document.getElementById('productBrand').value.trim();
                 const price = parseFloat(document.getElementById('productPrice').value);
                 const barcode = document.getElementById('productBarcode').value.trim();
+                const imageData = document.getElementById('productImageData').value;
 
                 if (!name || isNaN(price) || price <= 0) {
                     this.showToast('Por favor completa todos los campos');
@@ -945,18 +1503,36 @@
 
                 this.inventory.push({
                     name,
+                    brand: brand || null,
                     price,
-                    barcode: barcode || null
+                    barcode: barcode || null,
+                    image: imageData || null
                 });
 
                 this.saveData();
                 this.renderInventory();
 
                 document.getElementById('productName').value = '';
+                document.getElementById('productBrand').value = '';
                 document.getElementById('productPrice').value = '';
                 document.getElementById('productBarcode').value = '';
+                document.getElementById('productImageData').value = '';
+                document.getElementById('imagePreview').innerHTML = '';
 
                 this.showToast('Producto agregado');
+            },
+
+            handleImageUpload(input) {
+                const file = input.files[0];
+                if (!file) return;
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    document.getElementById('productImageData').value = e.target.result;
+                    document.getElementById('imagePreview').innerHTML =
+                        `<img src="${e.target.result}" alt="Vista previa">`;
+                };
+                reader.readAsDataURL(file);
             },
 
             editProduct(index) {
@@ -964,16 +1540,27 @@
                 const product = this.inventory[index];
 
                 document.getElementById('editProductName').value = product.name;
+                document.getElementById('editProductBrand').value = product.brand || '';
                 document.getElementById('editProductPrice').value = product.price;
                 document.getElementById('editProductBarcode').value = product.barcode || '';
+                document.getElementById('editProductImageData').value = product.image || '';
+
+                if (product.image) {
+                    document.getElementById('editImagePreview').innerHTML =
+                        `<img src="${product.image}" alt="Foto actual">`;
+                } else {
+                    document.getElementById('editImagePreview').innerHTML = '';
+                }
 
                 document.getElementById('editModal').classList.add('show');
             },
 
             saveEdit() {
                 const name = document.getElementById('editProductName').value.trim();
+                const brand = document.getElementById('editProductBrand').value.trim();
                 const price = parseFloat(document.getElementById('editProductPrice').value);
                 const barcode = document.getElementById('editProductBarcode').value.trim();
+                const imageData = document.getElementById('editProductImageData').value;
 
                 if (!name || isNaN(price) || price <= 0) {
                     this.showToast('Por favor completa todos los campos');
@@ -982,8 +1569,10 @@
 
                 this.inventory[this.editingIndex] = {
                     name,
+                    brand: brand || null,
                     price,
-                    barcode: barcode || null
+                    barcode: barcode || null,
+                    image: imageData || null
                 };
 
                 this.saveData();
@@ -992,7 +1581,24 @@
                 this.showToast('Producto actualizado');
             },
 
+            handleEditImageUpload(input) {
+                const file = input.files[0];
+                if (!file) return;
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    document.getElementById('editProductImageData').value = e.target.result;
+                    document.getElementById('editImagePreview').innerHTML =
+                        `<img src="${e.target.result}" alt="Vista previa">`;
+                };
+                reader.readAsDataURL(file);
+            },
+
             closeEditModal() {
+                document.getElementById('editModal').classList.remove('show');
+                document.getElementById('editImagePreview').innerHTML = '';
+                this.editingIndex = null;
+            },
                 document.getElementById('editModal').classList.remove('show');
                 this.editingIndex = null;
             },
@@ -1233,8 +1839,10 @@
 
                 listContainer.innerHTML = this.inventory.map((product, index) => `
                     <div class="inventory-item">
+                        ${product.image ? `<img src="${product.image}" class="inventory-item-img" alt="${product.name}">` : ''}
                         <div class="inventory-item-info">
                             <div class="inventory-item-name">${product.name}</div>
+                            ${product.brand ? `<div class="inventory-item-brand">${product.brand}</div>` : ''}
                             <div class="inventory-item-price">$${product.price.toFixed(2)}</div>
                             ${product.barcode ? `<div class="inventory-item-barcode">${product.barcode}</div>` : ''}
                         </div>
