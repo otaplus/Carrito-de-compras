@@ -836,7 +836,14 @@
 <body>
     <header class="app-header">
         <h1>🛒 Carrito SV</h1>
-        <div class="rate-display" id="rateDisplay" style="cursor: pointer;">Cargando...</div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="rate-display" id="rateDisplay" style="cursor: pointer;">Bs 481,22</div>
+            <button id="refreshRateBtn" style="background: rgba(255,255,255,0.2); border: none; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"></path>
+                </svg>
+            </button>
+        </div>
     </header>
 
     <div id="facturacion" class="tab-content active">
@@ -1067,10 +1074,8 @@
 
             init() {
                 this.loadData();
-                this.fetchExchangeRate();
                 this.bindEvents();
                 this.render();
-                this.startRateUpdater();
             },
 
             loadData() {
@@ -1159,8 +1164,11 @@
             },
 
             updateRateDisplay() {
-                document.getElementById('rateDisplay').textContent = 
-                    `Bs ${this.exchangeRate.toLocaleString('es-VE', { minimumFractionDigits: 2 })}`;
+                if (this.exchangeRate > 0) {
+                    document.getElementById('rateDisplay').textContent = 
+                        `Bs ${this.exchangeRate.toLocaleString('es-VE', { minimumFractionDigits: 2 })}`;
+                    this.saveRate();
+                }
             },
 
             startRateUpdater() {
@@ -1176,6 +1184,10 @@
 
                 document.getElementById('rateDisplay').addEventListener('click', () => {
                     this.editRate();
+                });
+
+                document.getElementById('refreshRateBtn').addEventListener('click', () => {
+                    this.fetchExchangeRate();
                 });
 
                 document.getElementById('searchInput').addEventListener('input', (e) => {
