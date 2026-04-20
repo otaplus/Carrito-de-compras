@@ -46,7 +46,7 @@
             padding: 16px;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -297,7 +297,7 @@
             background: var(--card);
             display: flex;
             border-top: 1px solid var(--border);
-            z-index: 100;
+            z-index: 1000;
             min-height: 56px;
         }
 
@@ -1056,6 +1056,18 @@
         </div>
     </div>
 
+    <div class="modal" id="barcodeModal">
+        <div class="modal-content">
+            <h2 class="modal-title">Ingresar Código de Barras</h2>
+            <div class="form-group">
+                <label>Código de barras</label>
+                <input type="text" id="manualBarcodeInput" inputmode="numeric" placeholder="Ingresa el código">
+            </div>
+            <button class="btn btn-primary" id="submitBarcodeBtn">Buscar</button>
+            <button class="btn" style="margin-top: 8px; background: var(--border);" id="cancelBarcodeBtn">Cancelar</button>
+        </div>
+    </div>
+
     <div class="scanner-container" id="scannerContainer">
         <button class="scanner-close" id="scannerClose">&times;</button>
         <video class="scanner-video" id="scannerVideo" autoplay playsinline></video>
@@ -1076,6 +1088,7 @@
                 this.loadData();
                 this.bindEvents();
                 this.render();
+                this.fetchExchangeRate(); // Actualizar tasa al abrir la app
             },
 
             loadData() {
@@ -1179,7 +1192,10 @@
 
             bindEvents() {
                 document.querySelectorAll('.nav-tab').forEach(tab => {
-                    tab.addEventListener('click', () => this.switchTab(tab.dataset.tab));
+                    tab.addEventListener('click', () => {
+                        const tabId = tab.dataset.tab.toLowerCase();
+                        this.switchTab(tabId);
+                    });
                 });
 
                 document.getElementById('rateDisplay').addEventListener('click', () => {
@@ -1219,7 +1235,7 @@
                 });
 
                 document.getElementById('manualScanBtn').addEventListener('click', () => {
-                    this.promptManualBarcode();
+                    this.showBarcodeModal();
                 });
 
                 document.getElementById('scannerClose').addEventListener('click', () => {
@@ -1240,6 +1256,18 @@
 
                 document.getElementById('editProductImage').addEventListener('change', (e) => {
                     this.handleEditImageUpload(e.target);
+                });
+
+                document.getElementById('submitBarcodeBtn').addEventListener('click', () => {
+                    const code = document.getElementById('manualBarcodeInput').value.trim();
+                    if (code) {
+                        this.lookupBarcode(code);
+                        document.getElementById('barcodeModal').classList.remove('show');
+                    }
+                });
+
+                document.getElementById('cancelBarcodeBtn').addEventListener('click', () => {
+                    document.getElementById('barcodeModal').classList.remove('show');
                 });
 
                 document.getElementById('saveHistoryBtn').addEventListener('click', () => {
@@ -1309,10 +1337,10 @@
 
             switchTab(tabId) {
                 document.querySelectorAll('.nav-tab').forEach(tab => {
-                    tab.classList.toggle('active', tab.dataset.tab === tabId);
+                    tab.classList.toggle('active', tab.dataset.tab.toLowerCase() === tabId);
                 });
                 document.querySelectorAll('.tab-content').forEach(content => {
-                    content.classList.toggle('active', content.id === tabId);
+                    content.classList.toggle('active', content.id.toLowerCase() === tabId);
                 });
 
                 if (tabId === 'inventario') {
@@ -1630,9 +1658,6 @@
                 document.getElementById('editImagePreview').innerHTML = '';
                 this.editingIndex = null;
             },
-                document.getElementById('editModal').classList.remove('show');
-                this.editingIndex = null;
-            },
 
             deleteProduct(index) {
                 if (confirm('¿Eliminar este producto?')) {
@@ -1676,7 +1701,7 @@
                     }
                     
                     this.stopScanner();
-                    this.promptManualBarcode();
+                    this.showBarcodeModal();
                 }
             },
 
@@ -1696,11 +1721,9 @@
                 }
             },
 
-            promptManualBarcode() {
-                const code = window.prompt('Ingresa el código de barras manualmente:');
-                if (code && code.trim()) {
-                    this.lookupBarcode(code.trim());
-                }
+            showBarcodeModal() {
+                document.getElementById('manualBarcodeInput').value = '';
+                document.getElementById('barcodeModal').classList.add('show');
             },
 
             showBarcodeModal() {
