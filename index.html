@@ -298,21 +298,22 @@
             display: flex;
             border-top: 1px solid var(--border);
             z-index: 100;
+            min-height: 56px;
         }
 
         .nav-tab {
             flex: 1;
-            padding: 16px;
+            padding: 10px 6px;
             background: none;
             border: none;
-            font-size: 14px;
+            font-size: 11px;
             font-weight: 600;
             color: var(--text-light);
             cursor: pointer;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 2px;
         }
 
         .nav-tab.active {
@@ -320,8 +321,8 @@
         }
 
         .nav-tab svg {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
         }
 
         .inventory-form {
@@ -835,7 +836,7 @@
 <body>
     <header class="app-header">
         <h1>🛒 Carrito SV</h1>
-        <div class="rate-display" id="rateDisplay">Cargando...</div>
+        <div class="rate-display" id="rateDisplay" style="cursor: pointer;">Cargando...</div>
     </header>
 
     <div id="facturacion" class="tab-content active">
@@ -1061,7 +1062,7 @@
             inventory: [],
             invoice: [],
             history: [],
-            exchangeRate: 0,
+            exchangeRate: 481.22,
             editingIndex: null,
 
             init() {
@@ -1089,11 +1090,9 @@
                 }
                 if (savedRate) {
                     const rateData = JSON.parse(savedRate);
-                    if (Date.now() - rateData.timestamp < 3600000) {
-                        this.exchangeRate = rateData.rate;
-                        this.updateRateDisplay();
-                    }
+                    this.exchangeRate = rateData.rate;
                 }
+                this.updateRateDisplay();
             },
 
             saveData() {
@@ -1110,37 +1109,53 @@
             },
 
             async fetchExchangeRate() {
-                this.showToast('Obteniendo tasa de cambio...');
-                
+                this.showToast('Actualizando tasa...');
+
+                const savedRate = localStorage.getItem('carrito_rate');
+                if (savedRate) {
+                    const rateData = JSON.parse(savedRate);
+                    this.exchangeRate = rateData.rate;
+                    this.updateRateDisplay();
+                }
+
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 8000);
+
                 try {
-                    const response = await fetch('https://api.exchangerate.host/latest?base=USD&symbols=VES');
+                    const response = await fetch('https://open.er-api.com/v6/latest/USD', {
+                        signal: controller.signal
+                    });
+                    clearTimeout(timeoutId);
+
                     const data = await response.json();
-                    
-                    if (data.success && data.rates && data.rates.VES) {
+
+                    if (data.rates && data.rates.VES) {
                         this.exchangeRate = Math.round(data.rates.VES * 100) / 100;
-                    } else {
-                        throw new Error('API no disponible');
-                    }
-                } catch (e) {
-                    try {
-                        const response = await fetch('https://open.er-api.com/v6/latest/USD');
-                        const data = await response.json();
-                        
-                        if (data.rates && data.rates.VES) {
-                            this.exchangeRate = Math.round(data.rates.VES * 100) / 100;
-                        } else {
-                            throw new Error('API no disponible');
-                        }
-                    } catch (e2) {
-                        this.exchangeRate = 100;
-                        this.showToast('Tasa de cambio estimada: 100 Bs/USD');
+                        this.saveRate();
+                        this.updateRateDisplay();
+                        this.showToast('Tasa actualizada');
                         return;
                     }
+                } catch (e) {
+                    console.log('API principal no disponible');
                 }
-                
-                this.saveRate();
-                this.updateRateDisplay();
-                this.showToast('Tasa actualizada');
+
+                if (this.exchangeRate === 0) {
+                    this.exchangeRate = 481.22;
+                    this.saveRate();
+                    this.updateRateDisplay();
+                }
+                this.showToast('Tasa guardada: ' + this.exchangeRate.toLocaleString('es-VE') + ' Bs/USD');
+            },
+
+            editRate() {
+                const newRate = prompt('Ingresa la tasa de cambio (Bs por USD):', this.exchangeRate);
+                if (newRate && !isNaN(newRate) && newRate > 0) {
+                    this.exchangeRate = parseFloat(newRate);
+                    this.saveRate();
+                    this.updateRateDisplay();
+                    this.showToast('Tasa actualizada: ' + this.exchangeRate.toLocaleString('es-VE') + ' Bs/USD');
+                }
             },
 
             updateRateDisplay() {
@@ -1157,6 +1172,10 @@
             bindEvents() {
                 document.querySelectorAll('.nav-tab').forEach(tab => {
                     tab.addEventListener('click', () => this.switchTab(tab.dataset.tab));
+                });
+
+                document.getElementById('rateDisplay').addEventListener('click', () => {
+                    this.editRate();
                 });
 
                 document.getElementById('searchInput').addEventListener('input', (e) => {
