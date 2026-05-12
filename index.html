@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -33,10 +34,25 @@
             --border: #334155;
         }
 
-        [data-color="verde"] { --primary: #10b981; --primary-dark: #059669; }
-        [data-color="rojo"] { --primary: #ef4444; --primary-dark: #dc2626; }
-        [data-color="purpura"] { --primary: #8b5cf6; --primary-dark: #7c3aed; }
-        [data-color="naranja"] { --primary: #f97316; --primary-dark: #ea580c; }
+        [data-color="verde"] {
+            --primary: #10b981;
+            --primary-dark: #059669;
+        }
+
+        [data-color="rojo"] {
+            --primary: #ef4444;
+            --primary-dark: #dc2626;
+        }
+
+        [data-color="purpura"] {
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+        }
+
+        [data-color="naranja"] {
+            --primary: #f97316;
+            --primary-dark: #ea580c;
+        }
 
         * {
             margin: 0;
@@ -70,7 +86,7 @@
         }
 
         .rate-display {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 14px;
@@ -122,7 +138,7 @@
             background: var(--card);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             max-height: 300px;
             overflow-y: auto;
             display: none;
@@ -160,7 +176,7 @@
             background: var(--card);
             border-radius: 12px;
             padding: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         .invoice-item-header {
@@ -244,7 +260,7 @@
             border-radius: 12px;
             padding: 20px;
             margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .invoice-total-row {
@@ -307,7 +323,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 1001;
             display: none;
             opacity: 0;
@@ -330,7 +346,7 @@
             transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
-            box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+            box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
         }
 
         .side-menu.open {
@@ -366,7 +382,8 @@
             transition: background 0.2s;
         }
 
-        .side-menu-item:hover, .side-menu-item:active {
+        .side-menu-item:hover,
+        .side-menu-item:active {
             background: var(--bg);
         }
 
@@ -406,7 +423,7 @@
             font-size: 4rem;
             font-weight: 800;
             color: var(--primary);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .tasa-grande-label {
@@ -436,20 +453,41 @@
             border-color: var(--text);
         }
 
-        .theme-btn.light { background: #f8fafc; border: 1px solid #cbd5e1; }
-        .theme-btn.dark { background: #0f172a; }
-        .theme-btn.blue { background: #2563eb; }
-        .theme-btn.verde { background: #10b981; }
-        .theme-btn.rojo { background: #ef4444; }
-        .theme-btn.purpura { background: #8b5cf6; }
-        .theme-btn.naranja { background: #f97316; }
+        .theme-btn.light {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+        }
+
+        .theme-btn.dark {
+            background: #0f172a;
+        }
+
+        .theme-btn.blue {
+            background: #2563eb;
+        }
+
+        .theme-btn.verde {
+            background: #10b981;
+        }
+
+        .theme-btn.rojo {
+            background: #ef4444;
+        }
+
+        .theme-btn.purpura {
+            background: #8b5cf6;
+        }
+
+        .theme-btn.naranja {
+            background: #f97316;
+        }
 
         .inventory-form {
             background: var(--card);
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         .form-group {
@@ -516,7 +554,7 @@
             background: var(--card);
             border-radius: 12px;
             padding: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -580,7 +618,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 200;
             align-items: center;
             justify-content: center;
@@ -708,7 +746,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .toast {
@@ -749,7 +789,7 @@
             background: var(--card);
             border-radius: 12px;
             padding: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         .history-header-row {
@@ -855,7 +895,7 @@
             border-radius: 12px;
             padding: 16px;
             margin-bottom: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         .backup-buttons {
@@ -902,27 +942,31 @@
             line-height: 1.5;
         }
 
-        .instructions-section, .tips-section {
+        .instructions-section,
+        .tips-section {
             background: var(--card);
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 16px;
         }
 
-        .instructions-section h3, .tips-section h3 {
+        .instructions-section h3,
+        .tips-section h3 {
             font-size: 18px;
             margin-bottom: 16px;
             color: var(--primary);
         }
 
-        .instructions-list, .tips-list {
+        .instructions-list,
+        .tips-list {
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        .instructions-list li, .tips-list li {
+        .instructions-list li,
+        .tips-list li {
             padding-left: 20px;
             position: relative;
             line-height: 1.5;
@@ -950,8 +994,261 @@
             color: var(--text-light);
             margin-top: 20px;
         }
+
+        /* Calculadora Styles */
+        .calc-container {
+            max-width: 320px;
+            margin: 0 auto;
+            background: #2d2d2d;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .calc-display {
+            background: #9cad8d; /* LCD greenish color */
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            position: relative;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+            border: 4px solid #1a1a1a;
+        }
+
+        .calc-main-display {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 32px;
+            text-align: right;
+            color: #1a1a1a;
+            font-weight: bold;
+            min-height: 40px;
+            overflow: hidden;
+            letter-spacing: 2px;
+        }
+
+        .calc-memory-indicator {
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            font-size: 10px;
+            font-family: sans-serif;
+            color: #1a1a1a;
+            font-weight: bold;
+            display: none;
+        }
+
+        .calc-memory-indicator.active {
+            display: block;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .calc-btn {
+            height: 50px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.1s, background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #4a4a4a;
+            color: white;
+            box-shadow: 0 4px 0 #333;
+        }
+
+        .calc-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #333;
+        }
+
+        .calc-btn.memory {
+            background: #555;
+            font-size: 14px;
+            color: #ccc;
+            height: 40px;
+        }
+
+        .calc-btn.op {
+            background: #f59e0b; /* Accent/Orange */
+            color: white;
+            box-shadow: 0 4px 0 #b45309;
+        }
+
+        .calc-btn.clear {
+            background: #ef4444; /* Danger/Red */
+            box-shadow: 0 4px 0 #b91c1c;
+        }
+
+        .calc-btn.equal {
+            background: #10b981; /* Success/Green */
+            box-shadow: 0 4px 0 #047857;
+            grid-row: span 2;
+            height: auto;
+        }
+
+        .calc-history {
+            margin-top: 30px;
+            background: var(--card);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .calc-history h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+        }
+
+        .calc-history-list {
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        .calc-history-item {
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .calc-history-item:last-child {
+            border-bottom: none;
+        }
+
+        .calc-history-exp {
+            color: var(--text-light);
+        }
+
+        .calc-history-res {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .budget-form {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .budget-form-title {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        .currency-selector {
+            display: flex;
+            gap: 12px;
+        }
+
+        .currency-btn {
+            flex: 1;
+            padding: 14px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            background: var(--card);
+            color: var(--text);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .currency-btn.active {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: white;
+        }
+
+        .budget-display {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .budget-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .budget-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .budget-row .label {
+            color: var(--text-light);
+        }
+
+        .budget-row .value {
+            font-weight: 700;
+        }
+
+        .budget-row .value.positive {
+            color: var(--secondary);
+        }
+
+        .budget-row .value.negative {
+            color: var(--danger);
+        }
+
+        .budget-remaining {
+            margin-top: 12px;
+            background: var(--card);
+            border-radius: 12px;
+            padding: 16px 20px;
+            border: 2px solid var(--secondary);
+        }
+
+        .budget-remaining.over-budget {
+            border-color: var(--danger);
+        }
+
+        .budget-remaining-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .budget-remaining-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .budget-remaining-label {
+            color: var(--text-light);
+        }
+
+        .budget-remaining-value {
+            font-weight: 700;
+        }
+
+        .budget-remaining-value.positive {
+            color: var(--secondary);
+        }
+
+        .budget-remaining-value.negative {
+            color: var(--danger);
+        }
     </style>
 </head>
+
 <body>
     <header class="app-header">
         <h1 id="headerTitle">🛒 Carrito de Compras Rojita</h1>
@@ -969,28 +1266,69 @@
         </div>
         <div class="side-menu-items">
             <a class="side-menu-item active" data-tab="tasa">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path>
+                </svg>
                 Tasa del día
             </a>
             <a class="side-menu-item" data-tab="facturacion">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                    </path>
+                </svg>
                 Facturación
             </a>
             <a class="side-menu-item" data-tab="historial">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                    </path>
+                </svg>
                 Historial
             </a>
+            <a class="side-menu-item" data-tab="calculadora">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                    <line x1="8" y1="6" x2="16" y2="6"></line>
+                    <line x1="16" y1="14" x2="16" y2="14"></line>
+                    <line x1="12" y1="14" x2="12" y2="14"></line>
+                    <line x1="8" y1="14" x2="8" y2="14"></line>
+                    <line x1="16" y1="18" x2="16" y2="18"></line>
+                    <line x1="12" y1="18" x2="12" y2="18"></line>
+                    <line x1="8" y1="18" x2="8" y2="18"></line>
+                    <line x1="16" y1="10" x2="16" y2="10"></line>
+                    <line x1="12" y1="10" x2="12" y2="10"></line>
+                    <line x1="8" y1="10" x2="8" y2="10"></line>
+                </svg>
+                Calculadora
+            </a>
+            <a class="side-menu-item" data-tab="presupuesto">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path>
+                </svg>
+                Presupuesto
+            </a>
             <a class="side-menu-item" data-tab="inventario">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                </svg>
                 Inventario
             </a>
             <a class="side-menu-item" data-tab="instrucciones">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
                 Instrucciones
             </a>
             <div class="side-menu-divider"></div>
             <a class="side-menu-item" data-tab="opciones">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path
+                        d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z">
+                    </path>
+                </svg>
                 Opciones
             </a>
         </div>
@@ -998,13 +1336,95 @@
 
     <div id="tasa" class="tab-content active">
         <div class="tasa-grande-container">
-            <div class="tasa-grande-label">Tasa de Cambio del Día</div>
-            <div class="tasa-grande-valor" id="tasaGrandeValor" title="Toca para editar" style="cursor:pointer;">Bs 0,00</div>
+            <div class="tasa-grande-label">Tasa de Cambio BCV</div>
+            <div class="tasa-grande-valor" id="tasaGrandeValor" title="Toca para editar" style="cursor:pointer;">Bs 0,00
+            </div>
             <div style="display:flex; gap:12px; align-items:center;">
-                <button class="btn btn-secondary" id="tasaRefreshBtn" style="padding: 10px 16px; display:flex; align-items:center; gap:8px;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"></path></svg>
+                <button class="btn btn-secondary" id="tasaRefreshBtn"
+                    style="padding: 10px 16px; display:flex; align-items:center; gap:8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15">
+                        </path>
+                    </svg>
                     Actualizar
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="calculadora" class="tab-content">
+        <div class="calc-container">
+            <div class="calc-display">
+                <div class="calc-memory-indicator" id="calcMemoryInd">M</div>
+                <div class="calc-main-display" id="calcDisplay">0</div>
+            </div>
+            <div class="calc-grid">
+                <!-- Memory Buttons -->
+                <button class="calc-btn memory" onclick="App.calcMemory('MC')">MC</button>
+                <button class="calc-btn memory" onclick="App.calcMemory('MR')">MR</button>
+                <button class="calc-btn memory" onclick="App.calcMemory('M-')">M-</button>
+                <button class="calc-btn memory" onclick="App.calcMemory('M+')">M+</button>
+
+                <!-- Number and Operation Buttons -->
+                <button class="calc-btn clear" onclick="App.calcClear()">AC</button>
+                <button class="calc-btn op" onclick="App.calcOp('/')">÷</button>
+                <button class="calc-btn op" onclick="App.calcOp('*')">×</button>
+                <button class="calc-btn op" onclick="App.calcDelete()">DEL</button>
+
+                <button class="calc-btn" onclick="App.calcNum('7')">7</button>
+                <button class="calc-btn" onclick="App.calcNum('8')">8</button>
+                <button class="calc-btn" onclick="App.calcNum('9')">9</button>
+                <button class="calc-btn op" onclick="App.calcOp('-')">-</button>
+
+                <button class="calc-btn" onclick="App.calcNum('4')">4</button>
+                <button class="calc-btn" onclick="App.calcNum('5')">5</button>
+                <button class="calc-btn" onclick="App.calcNum('6')">6</button>
+                <button class="calc-btn op" onclick="App.calcOp('+')">+</button>
+
+                <button class="calc-btn" onclick="App.calcNum('1')">1</button>
+                <button class="calc-btn" onclick="App.calcNum('2')">2</button>
+                <button class="calc-btn" onclick="App.calcNum('3')">3</button>
+                <button class="calc-btn equal" onclick="App.calcEqual()">=</button>
+
+                <button class="calc-btn" onclick="App.calcNum('0')" style="grid-column: span 2;">0</button>
+                <button class="calc-btn" onclick="App.calcNum('.')">.</button>
+            </div>
+
+            <div class="calc-history">
+                <h3>Historial de Cálculos</h3>
+                <div id="calcHistoryList" class="calc-history-list"></div>
+                <button class="btn" onclick="App.clearCalcHistory()"
+                    style="margin-top:10px; background:var(--danger); color:white; font-size:12px; padding:8px;">Limpiar
+                    Historial</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="presupuesto" class="tab-content">
+        <div class="budget-form">
+            <h3 class="budget-form-title">Establecer Presupuesto</h3>
+            <div class="form-group">
+                <label>Monto</label>
+                <input type="number" id="budgetAmount" placeholder="0.00" step="0.01" min="0" inputmode="decimal">
+            </div>
+            <div class="form-group">
+                <label>Moneda</label>
+                <div class="currency-selector" id="currencySelector">
+                    <button class="currency-btn active" data-currency="USD">$ Dólares</button>
+                    <button class="currency-btn" data-currency="BS">Bs Bolívares</button>
+                </div>
+            </div>
+            <button class="btn btn-primary" id="saveBudgetBtn">Guardar Presupuesto</button>
+            <button class="btn" id="clearBudgetBtn" style="margin-top:8px; background:var(--danger); color:white;">Eliminar Presupuesto</button>
+        </div>
+        <div class="budget-display" id="budgetDisplay">
+            <div class="budget-row">
+                <span class="label">Presupuesto:</span>
+                <span class="value" id="budgetDisplayAmount">No establecido</span>
+            </div>
+            <div class="budget-row">
+                <span class="label">Saldo Restante:</span>
+                <span class="value" id="budgetDisplayRemaining">—</span>
             </div>
         </div>
     </div>
@@ -1035,7 +1455,9 @@
 
         <div class="invoice-empty" id="invoiceEmpty">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                <path
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                </path>
             </svg>
             <p>Agrega productos usando el buscador de arriba</p>
         </div>
@@ -1066,13 +1488,17 @@
                 <input type="text" id="productBarcode" placeholder="Código de barras" inputmode="numeric">
                 <div style="display: flex; gap: 8px; margin-top: 8px;">
                     <button class="btn btn-scan" id="scanBtn" style="flex: 1;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px">
-                            <path d="M3 7V5a2 2 0 012-2h2M17 3h2a2 2 0 012 2v2M21 17v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2"></path>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px">
+                            <path
+                                d="M3 7V5a2 2 0 012-2h2M17 3h2a2 2 0 012 2v2M21 17v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2">
+                            </path>
                         </svg>
                         Escanear
                     </button>
                     <button class="btn" id="manualScanBtn" style="flex: 1; background: #64748b; color: white;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px">
                             <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"></path>
                             <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"></path>
                         </svg>
@@ -1098,44 +1524,49 @@
                 <h2>Isaac</h2>
                 <p class="profile-title">Programador</p>
             </div>
-            <p class="intro-text">Hola, soy Isaac, programador y te presento esta aplicación para hacer más fácil las compras!</p>
+            <p class="intro-text">Hola, soy Isaac, programador y te presento esta aplicación para hacer más fácil las
+                compras!</p>
             <div class="instructions-section">
                 <h3>📱 Cómo usar la app</h3>
                 <ul class="instructions-list">
                     <li>
-                        <strong>Agregar productos:</strong>
-                        Ve a la pestaña "Inventario", completa los datos del producto y guárdalo.
+                        <strong>Navegación:</strong>
+                        Usa el menú lateral (botón ☰) para moverte entre Facturación, Inventario, Historial y la nueva Calculadora.
                     </li>
                     <li>
-                        <strong>Crear factura:</strong>
-                        En "Facturación", busca productos y agrégalos a tu carrito.
+                        <strong>Tasa de Cambio:</strong>
+                        Se actualiza automáticamente desde fuentes oficiales y paralelas. Puedes forzar la actualización o editarla manualmente tocando el valor grande en el Inicio.
                     </li>
                     <li>
-                        <strong>Control de cantidad:</strong>
-                        Usa los botones + y - para aumentar o disminuir cantidades.
+                        <strong>Facturación:</strong>
+                        Busca productos por nombre o código. El sistema calcula totales en USD y Bs en tiempo real.
                     </li>
                     <li>
-                        <strong>Guardar compras:</strong>
-                        Ve a "Historial" para guardar y revisar tus compras anteriores.
+                        <strong>Calculadora Casio:</strong>
+                        Diseñada para cálculos rápidos mientras compras. Incluye memoria (M+/M-) e historial de operaciones que no se borra al cerrar la app.
                     </li>
                     <li>
-                        <strong>Escanear códigos:</strong>
-                        Usa el botón de escáner en "Inventario" para buscar productos por código de barras.
+                        <strong>Opciones y Personalización:</strong>
+                        Cambia el nombre de la app, elige entre diversos temas de colores y activa/configura el I.V.A. según tus necesidades.
                     </li>
                     <li>
-                        <strong>Respaldos:</strong>
-                        Exporta tus datos para no perder información.
+                        <strong>Inventario y Escáner:</strong>
+                        Gestiona tus productos con fotos y códigos de barras. El escáner integrado facilita la búsqueda y registro.
+                    </li>
+                    <li>
+                        <strong>Historial y Backup:</strong>
+                        Guarda tus compras finalizadas para llevar un control. Exporta tus datos regularmente para tener un respaldo seguro.
                     </li>
                 </ul>
             </div>
             <div class="tips-section">
-                <h3>💡 Consejos</h3>
+                <h3>💡 Consejos Pro</h3>
                 <ul class="tips-list">
-                    <li>Agrega fotos a tus productos para identificarlos más rápido</li>
-                    <li>Guarda tus facturas regularly en el historial</li>
-                    <li>Exporta un backup de vez en cuando</li>
-                    <li>La tasa de cambio se actualiza automáticamente cada hora</li>
-                    <li>Cierra burbujas o apps flotantes antes de escanear códigos de barras</li>
+                    <li>Agrega fotos a tus productos para identificarlos visualmente en la factura.</li>
+                    <li>Usa la memoria de la calculadora para sumar precios de artículos que no tienes en inventario.</li>
+                    <li>La tasa de cambio se verifica cada hora, pero puedes actualizarla manualmente si hay mucha volatilidad.</li>
+                    <li>Si el escáner no enfoca bien, intenta alejar un poco el teléfono o mejorar la iluminación.</li>
+                    <li>Cierra otras apps que usen la cámara antes de intentar escanear códigos de barras.</li>
                 </ul>
             </div>
             <div class="instructions-section">
@@ -1161,7 +1592,9 @@
         <div class="history-list" id="historyList"></div>
         <div class="history-empty" id="historyEmpty">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                <path
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                </path>
             </svg>
             <p>No hay compras guardadas</p>
             <p>Guarda tu factura actual para ver el historial</p>
@@ -1172,12 +1605,14 @@
         <div class="instructions-content">
             <div class="instructions-section">
                 <h3>🎨 Personalización</h3>
-                
+
                 <div class="form-group">
                     <label>Nombre de la Aplicación</label>
                     <div style="display:flex; gap:8px;">
-                        <input type="text" id="appNameInput" placeholder="Ej: Carrito de Compras Rojita" value="Carrito de Compras Rojita">
-                        <button class="btn btn-primary" id="saveAppNameBtn" style="width:auto; padding: 12px 16px;">Guardar</button>
+                        <input type="text" id="appNameInput" placeholder="Ej: Carrito de Compras Rojita"
+                            value="Carrito de Compras Rojita">
+                        <button class="btn btn-primary" id="saveAppNameBtn"
+                            style="width:auto; padding: 12px 16px;">Guardar</button>
                     </div>
                 </div>
 
@@ -1197,17 +1632,18 @@
 
             <div class="tips-section">
                 <h3>💰 Impuestos (I.V.A.)</h3>
-                
+
                 <div class="form-group" style="display:flex; align-items:center; gap:12px;">
                     <input type="checkbox" id="ivaToggle" style="width: 24px; height: 24px;">
                     <label style="margin: 0; cursor: pointer;" for="ivaToggle">Aplicar I.V.A. a la facturación</label>
                 </div>
-                
+
                 <div class="form-group" id="ivaPercentageGroup" style="display:none; margin-top: 12px;">
                     <label>Porcentaje de I.V.A. (%)</label>
                     <div style="display:flex; gap:8px;">
                         <input type="number" id="ivaPercentageInput" value="16" min="0" max="100" step="0.1">
-                        <button class="btn btn-primary" id="saveIvaBtn" style="width:auto; padding: 12px 16px;">Guardar</button>
+                        <button class="btn btn-primary" id="saveIvaBtn"
+                            style="width:auto; padding: 12px 16px;">Guardar</button>
                     </div>
                 </div>
             </div>
@@ -1252,7 +1688,8 @@
                 <input type="text" id="manualBarcodeInput" inputmode="numeric" placeholder="Ingresa el código">
             </div>
             <button class="btn btn-primary" id="submitBarcodeBtn">Buscar</button>
-            <button class="btn" style="margin-top: 8px; background: var(--border);" id="cancelBarcodeBtn">Cancelar</button>
+            <button class="btn" style="margin-top: 8px; background: var(--border);"
+                id="cancelBarcodeBtn">Cancelar</button>
         </div>
     </div>
 
@@ -1276,13 +1713,22 @@
             appName: 'Carrito de Compras Rojita',
             ivaEnabled: false,
             ivaPercentage: 16,
+            calcDisplayVal: '0',
+            calcPrevVal: null,
+            calcOperation: null,
+            calcNewValue: true,
+            calcMemoryVal: 0,
+            calcHistory: [],
+            budgetAmount: 0,
+            budgetCurrency: 'USD',
 
             init() {
                 this.loadData();
                 this.applySettings();
                 this.bindEvents();
                 this.render();
-                this.fetchExchangeRate(); // Actualizar tasa al abrir la app
+                this.fetchExchangeRate();
+                this.startRateUpdater();
             },
 
             loadData() {
@@ -1313,23 +1759,62 @@
                     this.ivaEnabled = settings.ivaEnabled || false;
                     this.ivaPercentage = settings.ivaPercentage || 16;
                 }
+
+                const savedCalc = localStorage.getItem('carrito_calc');
+                if (savedCalc) {
+                    const calcData = JSON.parse(savedCalc);
+                    this.calcMemoryVal = calcData.memory || 0;
+                    this.calcHistory = calcData.history || [];
+                }
+
+                const savedBudget = localStorage.getItem('carrito_budget');
+                if (savedBudget) {
+                    const budgetData = JSON.parse(savedBudget);
+                    this.budgetAmount = budgetData.amount || 0;
+                    this.budgetCurrency = budgetData.currency || 'USD';
+                }
+
                 this.updateRateDisplay();
+                this.renderCalcHistory();
+                this.updateCalcDisplay();
             },
 
             saveData() {
-                localStorage.setItem('carrito_inventory', JSON.stringify(this.inventory));
-                localStorage.setItem('carrito_invoice', JSON.stringify(this.invoice));
-                localStorage.setItem('carrito_history', JSON.stringify(this.history));
+                try {
+                    localStorage.setItem('carrito_inventory', JSON.stringify(this.inventory));
+                    localStorage.setItem('carrito_invoice', JSON.stringify(this.invoice));
+                    localStorage.setItem('carrito_history', JSON.stringify(this.history));
+                    localStorage.setItem('carrito_calc', JSON.stringify({
+                        memory: this.calcMemoryVal,
+                        history: this.calcHistory
+                    }));
+                    localStorage.setItem('carrito_budget', JSON.stringify({
+                        amount: this.budgetAmount,
+                        currency: this.budgetCurrency
+                    }));
+                } catch (e) {
+                    if (e.name === 'QuotaExceededError' || e.code === 22) {
+                        this.showToast('Error: El almacenamiento está lleno. Exporta tus datos y elimina productos con foto.');
+                    } else {
+                        console.error('Error al guardar:', e);
+                    }
+                }
             },
 
             saveSettings() {
-                localStorage.setItem('carrito_settings', JSON.stringify({
-                    theme: this.theme,
-                    themeColor: this.themeColor,
-                    appName: this.appName,
-                    ivaEnabled: this.ivaEnabled,
-                    ivaPercentage: this.ivaPercentage
-                }));
+                try {
+                    localStorage.setItem('carrito_settings', JSON.stringify({
+                        theme: this.theme,
+                        themeColor: this.themeColor,
+                        appName: this.appName,
+                        ivaEnabled: this.ivaEnabled,
+                        ivaPercentage: this.ivaPercentage
+                    }));
+                } catch (e) {
+                    if (e.name === 'QuotaExceededError' || e.code === 22) {
+                        this.showToast('Error: El almacenamiento está lleno.');
+                    }
+                }
             },
 
             applySettings() {
@@ -1342,7 +1827,7 @@
 
                 document.getElementById('headerTitle').textContent = `🛒 ${this.appName}`;
                 document.getElementById('appNameInput').value = this.appName;
-                
+
                 document.getElementById('ivaToggle').checked = this.ivaEnabled;
                 document.getElementById('ivaPercentageInput').value = this.ivaPercentage;
                 document.getElementById('ivaPercentageGroup').style.display = this.ivaEnabled ? 'block' : 'none';
@@ -1350,56 +1835,83 @@
                 document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
                 const themeBtn = document.querySelector(`.theme-btn[data-theme-val="${this.theme}"]`);
                 if (themeBtn) themeBtn.classList.add('active');
-                
+
                 const colorBtn = document.querySelector(`.theme-btn[data-color-val="${this.themeColor}"]`);
                 if (colorBtn) colorBtn.classList.add('active');
             },
 
             saveRate() {
-                localStorage.setItem('carrito_rate', JSON.stringify({
-                    rate: this.exchangeRate,
-                    timestamp: Date.now()
-                }));
+                try {
+                    localStorage.setItem('carrito_rate', JSON.stringify({
+                        rate: this.exchangeRate,
+                        timestamp: Date.now()
+                    }));
+                } catch (e) {
+                    if (e.name === 'QuotaExceededError' || e.code === 22) {
+                        this.showToast('Error: El almacenamiento está lleno.');
+                    }
+                }
             },
 
             async fetchExchangeRate() {
-                this.showToast('Actualizando tasa...');
+                const refreshBtn = document.getElementById('tasaRefreshBtn');
+                const originalContent = refreshBtn ? refreshBtn.innerHTML : '';
 
-                const savedRate = localStorage.getItem('carrito_rate');
-                if (savedRate) {
-                    const rateData = JSON.parse(savedRate);
-                    this.exchangeRate = rateData.rate;
-                    this.updateRateDisplay();
+                if (refreshBtn) {
+                    refreshBtn.disabled = true;
+                    refreshBtn.innerHTML = `<span style="display:inline-block; width:16px; height:16px; border:2px solid #fff; border-top-color:transparent; border-radius:50%; animation:spin 1s linear infinite; margin-right:8px; vertical-align:middle;"></span>Actualizando...`;
                 }
 
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 8000);
+                this.showToast('Conectando con servidores de tasa...');
 
-                try {
-                    const response = await fetch('https://ve.dolarapi.com/v1/dolares/oficial', {
-                        signal: controller.signal
-                    });
-                    clearTimeout(timeoutId);
+                const endpoints = [
+                    'https://ve.dolarapi.com/v1/dolares/oficial',
+                    'https://ve.dolarapi.com/v1/dolares/paralelo'
+                ];
 
-                    const data = await response.json();
+                let rateFound = false;
 
-                    if (data.promedio) {
-                        this.exchangeRate = Math.round(data.promedio * 100) / 100;
+                for (const url of endpoints) {
+                    try {
+                        const controller = new AbortController();
+                        const timeoutId = setTimeout(() => controller.abort(), 6000);
+
+                        const response = await fetch(url, { signal: controller.signal });
+                        clearTimeout(timeoutId);
+
+                        if (!response.ok) continue;
+
+                        const data = await response.json();
+                        if (data && data.promedio) {
+                            this.exchangeRate = Math.round(data.promedio * 100) / 100;
+                            this.saveRate();
+                            this.updateRateDisplay();
+                            this.renderInvoice();
+                            this.showToast(`Tasa actualizada: ${this.exchangeRate.toLocaleString('es-VE')} Bs/USD (${data.nombre || 'Oficial'})`);
+                            rateFound = true;
+                            break;
+                        }
+                    } catch (e) {
+                        console.error(`Error al consultar ${url}:`, e);
+                    }
+                }
+
+                if (!rateFound) {
+                    if (!this.exchangeRate || this.exchangeRate < 10) {
+                        this.exchangeRate = 504.91;
                         this.saveRate();
                         this.updateRateDisplay();
-                        this.showToast('Tasa actualizada');
-                        return;
+                        this.renderInvoice();
+                        this.showToast('No se pudo conectar. Usando tasa de respaldo: ' + this.exchangeRate.toLocaleString('es-VE'));
+                    } else {
+                        this.showToast('No se pudo actualizar. Manteniendo tasa actual: ' + this.exchangeRate.toLocaleString('es-VE'));
                     }
-                } catch (e) {
-                    console.log('API principal no disponible');
                 }
 
-                if (this.exchangeRate === 0 || this.exchangeRate === 481.22) {
-                    this.exchangeRate = 504.91;
-                    this.saveRate();
-                    this.updateRateDisplay();
+                if (refreshBtn) {
+                    refreshBtn.disabled = false;
+                    refreshBtn.innerHTML = originalContent;
                 }
-                this.showToast('Tasa guardada: ' + this.exchangeRate.toLocaleString('es-VE') + ' Bs/USD');
             },
 
             editRate() {
@@ -1408,17 +1920,158 @@
                     this.exchangeRate = parseFloat(newRate);
                     this.saveRate();
                     this.updateRateDisplay();
+                    this.renderInvoice();
                     this.showToast('Tasa actualizada: ' + this.exchangeRate.toLocaleString('es-VE') + ' Bs/USD');
                 }
             },
 
             updateRateDisplay() {
-                if (this.exchangeRate > 0) {
+                if (this.exchangeRate && !isNaN(this.exchangeRate) && this.exchangeRate > 0) {
                     const rateDisplay = document.getElementById('tasaGrandeValor');
                     if (rateDisplay) {
                         rateDisplay.textContent = `Bs ${this.exchangeRate.toLocaleString('es-VE', { minimumFractionDigits: 2 })}`;
                     }
                     this.saveRate();
+                }
+            },
+
+            calcNum(num) {
+                if (this.calcNewValue) {
+                    this.calcDisplayVal = num === '.' ? '0.' : num;
+                    this.calcNewValue = false;
+                } else {
+                    if (num === '.' && this.calcDisplayVal.includes('.')) return;
+                    if (this.calcDisplayVal.length >= 8) return;
+                    this.calcDisplayVal = this.calcDisplayVal === '0' && num !== '.' ? num : this.calcDisplayVal + num;
+                }
+                this.updateCalcDisplay();
+            },
+
+            calcOp(op) {
+                const current = parseFloat(this.calcDisplayVal);
+                if (this.calcPrevVal === null) {
+                    this.calcPrevVal = current;
+                } else if (this.calcOperation) {
+                    const result = this.calculate(this.calcPrevVal, current, this.calcOperation);
+                    this.calcPrevVal = result;
+                    this.calcDisplayVal = String(this.formatCalcResult(result));
+                }
+                this.calcOperation = op;
+                this.calcNewValue = true;
+                this.updateCalcDisplay();
+                this.saveData();
+            },
+
+            calculate(a, b, op) {
+                switch (op) {
+                    case '+': return a + b;
+                    case '-': return a - b;
+                    case '*': return a * b;
+                    case '/': return b !== 0 ? a / b : 0;
+                    default: return b;
+                }
+            },
+
+            formatCalcResult(res) {
+                if (Math.abs(res) > 99999999) return res.toExponential(2);
+                const str = String(res);
+                if (str.length > 8) {
+                    return parseFloat(res.toPrecision(8));
+                }
+                return res;
+            },
+
+            calcEqual() {
+                if (this.calcPrevVal === null || !this.calcOperation) return;
+                const current = parseFloat(this.calcDisplayVal);
+                const result = this.calculate(this.calcPrevVal, current, this.calcOperation);
+
+                const expression = `${this.calcPrevVal} ${this.getOpSymbol(this.calcOperation)} ${current}`;
+                this.addCalcHistory(expression, result);
+
+                this.calcDisplayVal = String(this.formatCalcResult(result));
+                this.calcPrevVal = null;
+                this.calcOperation = null;
+                this.calcNewValue = true;
+                this.updateCalcDisplay();
+            },
+
+            getOpSymbol(op) {
+                switch (op) {
+                    case '/': return '÷';
+                    case '*': return '×';
+                    default: return op;
+                }
+            },
+
+            calcClear() {
+                this.calcDisplayVal = '0';
+                this.calcPrevVal = null;
+                this.calcOperation = null;
+                this.calcNewValue = true;
+                this.updateCalcDisplay();
+                this.saveData();
+            },
+
+            calcDelete() {
+                if (this.calcNewValue) return;
+                this.calcDisplayVal = this.calcDisplayVal.slice(0, -1) || '0';
+                this.updateCalcDisplay();
+            },
+
+            calcMemory(action) {
+                const current = parseFloat(this.calcDisplayVal);
+                switch (action) {
+                    case 'M+': this.calcMemoryVal += current; break;
+                    case 'M-': this.calcMemoryVal -= current; break;
+                    case 'MR':
+                        this.calcDisplayVal = String(this.formatCalcResult(this.calcMemoryVal));
+                        this.calcNewValue = true;
+                        break;
+                    case 'MC': this.calcMemoryVal = 0; break;
+                }
+                this.saveData();
+                this.updateCalcDisplay();
+            },
+
+            updateCalcDisplay() {
+                const display = document.getElementById('calcDisplay');
+                const memInd = document.getElementById('calcMemoryInd');
+                if (display) display.textContent = this.calcDisplayVal;
+                if (memInd) {
+                    if (this.calcMemoryVal !== 0) memInd.classList.add('active');
+                    else memInd.classList.remove('active');
+                }
+            },
+
+            addCalcHistory(exp, res) {
+                const formattedRes = this.formatCalcResult(res);
+                this.calcHistory.unshift({ exp, res: formattedRes, time: new Date().toLocaleTimeString() });
+                if (this.calcHistory.length > 20) this.calcHistory.pop();
+                this.saveData();
+                this.renderCalcHistory();
+            },
+
+            renderCalcHistory() {
+                const list = document.getElementById('calcHistoryList');
+                if (!list) return;
+                if (this.calcHistory.length === 0) {
+                    list.innerHTML = '<p style="color:var(--text-light); text-align:center; padding:10px;">Sin historial</p>';
+                    return;
+                }
+                list.innerHTML = this.calcHistory.map(item => `
+                    <div class="calc-history-item">
+                        <span class="calc-history-exp">${item.exp} =</span>
+                        <span class="calc-history-res">${item.res}</span>
+                    </div>
+                `).join('');
+            },
+
+            clearCalcHistory() {
+                if (confirm('¿Limpiar historial de cálculos?')) {
+                    this.calcHistory = [];
+                    this.saveData();
+                    this.renderCalcHistory();
                 }
             },
 
@@ -1576,6 +2229,21 @@
                 document.getElementById('importFile').addEventListener('change', (e) => {
                     this.importData(e);
                 });
+
+                document.getElementById('saveBudgetBtn').addEventListener('click', () => {
+                    this.setBudget();
+                });
+
+                document.getElementById('clearBudgetBtn').addEventListener('click', () => {
+                    this.clearBudget();
+                });
+
+                document.querySelectorAll('.currency-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        document.querySelectorAll('.currency-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                    });
+                });
             },
 
             exportData() {
@@ -1583,7 +2251,19 @@
                     version: '1.0',
                     timestamp: Date.now(),
                     inventory: this.inventory,
-                    history: this.history
+                    history: this.history,
+                    exchangeRate: this.exchangeRate,
+                    settings: {
+                        theme: this.theme,
+                        themeColor: this.themeColor,
+                        appName: this.appName,
+                        ivaEnabled: this.ivaEnabled,
+                        ivaPercentage: this.ivaPercentage
+                    },
+                    budget: {
+                        amount: this.budgetAmount,
+                        currency: this.budgetCurrency
+                    }
                 };
 
                 const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
@@ -1609,14 +2289,33 @@
                         throw new Error('Archivo inválido');
                     }
 
-                    if (confirm('Esto reemplazará tu inventario actual. ¿Continuar?')) {
+                    if (confirm('Esto reemplazará tu inventario, historial y configuración actual. ¿Continuar?')) {
                         this.inventory = data.inventory;
                         if (data.history) {
                             this.history = data.history;
                         }
+                        if (data.exchangeRate) {
+                            this.exchangeRate = data.exchangeRate;
+                            this.saveRate();
+                            this.updateRateDisplay();
+                        }
+                        if (data.settings) {
+                            this.theme = data.settings.theme || 'light';
+                            this.themeColor = data.settings.themeColor || 'blue';
+                            this.appName = data.settings.appName || 'Carrito de Compras Rojita';
+                            this.ivaEnabled = data.settings.ivaEnabled || false;
+                            this.ivaPercentage = data.settings.ivaPercentage || 16;
+                            this.saveSettings();
+                            this.applySettings();
+                        }
+                        if (data.budget) {
+                            this.budgetAmount = data.budget.amount || 0;
+                            this.budgetCurrency = data.budget.currency || 'USD';
+                        }
                         this.saveData();
                         this.renderInventory();
                         this.renderHistory();
+                        this.renderInvoice();
                         this.showToast('Datos importados');
                     }
                 } catch (err) {
@@ -1627,8 +2326,10 @@
             },
 
             switchTab(tabId) {
-                document.querySelectorAll('.nav-tab').forEach(tab => {
-                    tab.classList.toggle('active', tab.dataset.tab.toLowerCase() === tabId);
+                document.querySelectorAll('.side-menu-item').forEach(tab => {
+                    if (tab.dataset.tab) {
+                        tab.classList.toggle('active', tab.dataset.tab.toLowerCase() === tabId);
+                    }
                 });
                 document.querySelectorAll('.tab-content').forEach(content => {
                     content.classList.toggle('active', content.id.toLowerCase() === tabId);
@@ -1638,7 +2339,12 @@
                     this.renderInventory();
                 } else if (tabId === 'historial') {
                     this.renderHistory();
-                } else {
+                } else if (tabId === 'calculadora') {
+                    this.renderCalcHistory();
+                    this.updateCalcDisplay();
+                } else if (tabId === 'presupuesto') {
+                    this.renderBudget();
+                } else if (tabId === 'facturacion') {
                     this.renderInvoice();
                 }
             },
@@ -1664,6 +2370,9 @@
                     const product = this.inventory[item.productIndex];
                     return {
                         productIndex: item.productIndex,
+                        productName: product.name,
+                        productBrand: product.brand,
+                        productImage: product.image,
                         quantity: item.quantity,
                         unitPrice: product.price,
                         total: product.price * item.quantity
@@ -1710,11 +2419,10 @@
 
                 listContainer.innerHTML = this.history.map((purchase, index) => {
                     const products = purchase.items.map(item => {
-                        const product = this.inventory[item.productIndex];
-                        if (!product) return '';
+                        const productName = item.productName || 'Producto eliminado';
                         return `
                             <div class="history-product-row">
-                                <span class="history-product-name">${product.name}</span>
+                                <span class="history-product-name">${productName}</span>
                                 <span class="history-product-qty">x${item.quantity}</span>
                                 <span class="history-product-total">$${item.total.toFixed(2)}</span>
                             </div>
@@ -1762,7 +2470,7 @@
 
             handleSearch(query) {
                 const resultsContainer = document.getElementById('searchResults');
-                
+
                 if (!query.trim()) {
                     resultsContainer.classList.remove('show');
                     return;
@@ -1817,7 +2525,7 @@
 
             updateQuantity(invoiceIndex, delta) {
                 this.invoice[invoiceIndex].quantity += delta;
-                
+
                 if (this.invoice[invoiceIndex].quantity <= 0) {
                     this.invoice.splice(invoiceIndex, 1);
                 }
@@ -1953,8 +2661,14 @@
             deleteProduct(index) {
                 if (confirm('¿Eliminar este producto?')) {
                     this.inventory.splice(index, 1);
+                    this.invoice = this.invoice.filter(item => {
+                        if (item.productIndex === index) return false;
+                        if (item.productIndex > index) item.productIndex--;
+                        return true;
+                    });
                     this.saveData();
                     this.renderInventory();
+                    this.renderInvoice();
                     this.showToast('Producto eliminado');
                 }
             },
@@ -1973,24 +2687,24 @@
                             height: { ideal: 720 }
                         }
                     };
-                    
+
                     const stream = await navigator.mediaDevices.getUserMedia(constraints);
                     video.srcObject = stream;
-                    
+
                     this.scannerStream = stream;
                     video.play();
-                    
+
                     this.showToast('Cámara iniciada. Escaneando...');
                     this.scanForBarcode(video);
                 } catch (e) {
                     console.error('Error de cámara:', e);
                     this.showToast('Error: Cierra burbujas/superposiciones y permite cámara en ajustes.');
-                    
+
                     if (e.name === 'NotAllowedError') {
                         this.showToast('Permiso de cámara denegado. Cierra burbujas/superposiciones y activa en ajustes.');
                         alert('Para usar el escáner, cierra cualquier burbuja o app flotante, permite el acceso a la cámara en los ajustes del navegador.');
                     }
-                    
+
                     this.stopScanner();
                     this.showBarcodeModal();
                 }
@@ -2017,13 +2731,6 @@
                 document.getElementById('barcodeModal').classList.add('show');
             },
 
-            showBarcodeModal() {
-                const code = window.prompt('Ingresa el código de barras:');
-                if (code && code.trim()) {
-                    this.lookupBarcode(code.trim());
-                }
-            },
-
             async scanForBarcode(video) {
                 if (!document.getElementById('scannerContainer').classList.contains('show')) {
                     return;
@@ -2040,7 +2747,7 @@
                     const barcodeDetector = new BarcodeDetector({ formats });
 
                     const barcodes = await barcodeDetector.detect(video);
-                    
+
                     if (barcodes.length > 0) {
                         const code = barcodes[0].rawValue;
                         this.stopScanner();
@@ -2060,15 +2767,15 @@
                 this.showToast('Buscando producto...');
 
                 const product = await this.searchProductOnline(barcode);
-                
+
                 if (product) {
                     document.getElementById('productName').value = product.name;
                     document.getElementById('productBarcode').value = barcode;
-                    
+
                     if (product.price) {
                         document.getElementById('productPrice').value = product.price;
                     }
-                    
+
                     this.showToast(product.name);
                 } else {
                     document.getElementById('productBarcode').value = barcode;
@@ -2100,6 +2807,7 @@
             render() {
                 this.renderInvoice();
                 this.renderInventory();
+                this.renderBudget();
             },
 
             renderInvoice() {
@@ -2166,14 +2874,14 @@
 
                 let subtotalUSD = totalUSD;
                 let ivaUSD = 0;
-                
+
                 if (this.ivaEnabled) {
                     ivaUSD = subtotalUSD * (this.ivaPercentage / 100);
                     totalUSD = subtotalUSD + ivaUSD;
                 }
-                
+
                 const totalBS = totalUSD * this.exchangeRate;
-                
+
                 let htmlTotals = '';
                 if (this.ivaEnabled) {
                     htmlTotals += `
@@ -2198,7 +2906,52 @@
                     </div>
                     <button class="clear-btn" id="clearInvoice">Limpiar Factura</button>
                 `;
-                
+
+                if (this.budgetAmount > 0) {
+                    const budgetInUSD = this.budgetCurrency === 'USD'
+                        ? this.budgetAmount
+                        : this.budgetAmount / this.exchangeRate;
+                    const budgetRemainingUSD = budgetInUSD - totalUSD;
+                    const budgetRemainingBS = budgetRemainingUSD * this.exchangeRate;
+                    const overBudget = budgetRemainingUSD < 0;
+
+                    if (this.budgetCurrency === 'USD') {
+                        htmlTotals += `
+                            <div class="budget-remaining ${overBudget ? 'over-budget' : ''}">
+                                <div class="budget-remaining-row">
+                                    <span class="budget-remaining-label">Presupuesto:</span>
+                                    <span class="budget-remaining-value">$${this.budgetAmount.toFixed(2)}</span>
+                                </div>
+                                <div class="budget-remaining-row">
+                                    <span class="budget-remaining-label">Saldo Restante:</span>
+                                    <span class="budget-remaining-value ${overBudget ? 'negative' : 'positive'}">$${budgetRemainingUSD.toFixed(2)}</span>
+                                </div>
+                                <div class="budget-remaining-row">
+                                    <span class="budget-remaining-label">Saldo Restante (Bs):</span>
+                                    <span class="budget-remaining-value">Bs ${budgetRemainingBS.toLocaleString('es-VE', { minimumFractionDigits: 2 })}</span>
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        htmlTotals += `
+                            <div class="budget-remaining ${overBudget ? 'over-budget' : ''}">
+                                <div class="budget-remaining-row">
+                                    <span class="budget-remaining-label">Presupuesto:</span>
+                                    <span class="budget-remaining-value">Bs ${this.budgetAmount.toLocaleString('es-VE', { minimumFractionDigits: 2 })}</span>
+                                </div>
+                                <div class="budget-remaining-row">
+                                    <span class="budget-remaining-label">Saldo Restante:</span>
+                                    <span class="budget-remaining-value ${overBudget ? 'negative' : 'positive'}">Bs ${budgetRemainingBS.toLocaleString('es-VE', { minimumFractionDigits: 2 })}</span>
+                                </div>
+                                <div class="budget-remaining-row">
+                                    <span class="budget-remaining-label">Saldo Restante (USD):</span>
+                                    <span class="budget-remaining-value">$${budgetRemainingUSD.toFixed(2)}</span>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+
                 totalContainer.innerHTML = htmlTotals;
                 document.getElementById('clearInvoice').addEventListener('click', () => {
                     this.clearInvoice();
@@ -2255,6 +3008,85 @@
                 });
             },
 
+            setBudget() {
+                const amount = parseFloat(document.getElementById('budgetAmount').value);
+                const currency = document.querySelector('.currency-btn.active').dataset.currency;
+                if (isNaN(amount) || amount <= 0) {
+                    this.showToast('Ingresa un monto válido');
+                    return;
+                }
+                this.budgetAmount = amount;
+                this.budgetCurrency = currency;
+                this.saveData();
+                this.renderBudget();
+                this.renderInvoice();
+                this.showToast('Presupuesto guardado');
+            },
+
+            clearBudget() {
+                if (confirm('¿Eliminar el presupuesto actual?')) {
+                    this.budgetAmount = 0;
+                    this.budgetCurrency = 'USD';
+                    this.saveData();
+                    this.renderBudget();
+                    this.renderInvoice();
+                    this.showToast('Presupuesto eliminado');
+                }
+            },
+
+            renderBudget() {
+                const amountEl = document.getElementById('budgetDisplayAmount');
+                const remainingEl = document.getElementById('budgetDisplayRemaining');
+                if (!amountEl) return;
+
+                document.querySelectorAll('.currency-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.currency === this.budgetCurrency);
+                });
+                document.getElementById('budgetAmount').value = this.budgetAmount > 0 ? this.budgetAmount : '';
+
+                if (this.budgetAmount > 0) {
+                    if (this.budgetCurrency === 'USD') {
+                        amountEl.textContent = `$${this.budgetAmount.toFixed(2)}`;
+                    } else {
+                        amountEl.textContent = `Bs ${this.budgetAmount.toLocaleString('es-VE', { minimumFractionDigits: 2 })}`;
+                    }
+                    this.updateBudgetRemainingDisplay();
+                } else {
+                    amountEl.textContent = 'No establecido';
+                    if (remainingEl) {
+                        remainingEl.textContent = '—';
+                        remainingEl.className = 'value';
+                    }
+                }
+            },
+
+            updateBudgetRemainingDisplay() {
+                const remainingEl = document.getElementById('budgetDisplayRemaining');
+                if (!remainingEl || this.budgetAmount <= 0) return;
+
+                let totalUSD = 0;
+                for (const item of this.invoice) {
+                    const product = this.inventory[item.productIndex];
+                    if (product) totalUSD += product.price * item.quantity;
+                }
+                if (this.ivaEnabled) {
+                    totalUSD += totalUSD * (this.ivaPercentage / 100);
+                }
+
+                const budgetInUSD = this.budgetCurrency === 'USD'
+                    ? this.budgetAmount
+                    : this.budgetAmount / (this.exchangeRate || 1);
+                const remainingUSD = budgetInUSD - totalUSD;
+                const remainingBS = remainingUSD * (this.exchangeRate || 1);
+
+                if (this.budgetCurrency === 'USD') {
+                    remainingEl.textContent = `$${remainingUSD.toFixed(2)}`;
+                } else {
+                    remainingEl.textContent = `Bs ${remainingBS.toLocaleString('es-VE', { minimumFractionDigits: 2 })}`;
+                }
+                remainingEl.className = 'value ' + (remainingUSD >= 0 ? 'positive' : 'negative');
+            },
+
             showToast(message) {
                 const toast = document.getElementById('toast');
                 toast.textContent = message;
@@ -2268,7 +3100,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             App.init();
-            
+
             let deferredPrompt;
             window.addEventListener('beforeinstallprompt', (e) => {
                 e.preventDefault();
@@ -2293,7 +3125,7 @@
                     });
                 }
             });
-            
+
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('sw.js')
                     .then(reg => console.log('SW registrado'))
@@ -2302,4 +3134,5 @@
         });
     </script>
 </body>
+
 </html>

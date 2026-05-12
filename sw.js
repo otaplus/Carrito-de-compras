@@ -1,4 +1,4 @@
-const CACHE_NAME = 'carrito-sv-v2';
+const CACHE_NAME = 'carrito-sv-v3';
 const ASSETS = [
   '/',
   '/index.html',
@@ -15,7 +15,26 @@ self.addEventListener('install', (event) => {
   );
 });
 
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((name) => {
+          if (name !== CACHE_NAME) {
+            return caches.delete(name);
+          }
+        })
+      );
+    })
+  );
+});
+
 self.addEventListener('fetch', (event) => {
+  if (event.request.url.includes('dolarapi.com')) {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then((response) => {
       return response || fetch(event.request);
