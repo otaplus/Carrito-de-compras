@@ -25,6 +25,19 @@
             --border: #e2e8f0;
         }
 
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f8fafc;
+            --text-light: #94a3b8;
+            --border: #334155;
+        }
+
+        [data-color="verde"] { --primary: #10b981; --primary-dark: #059669; }
+        [data-color="rojo"] { --primary: #ef4444; --primary-dark: #dc2626; }
+        [data-color="purpura"] { --primary: #8b5cf6; --primary-dark: #7c3aed; }
+        [data-color="naranja"] { --primary: #f97316; --primary-dark: #ea580c; }
+
         * {
             margin: 0;
             padding: 0;
@@ -37,7 +50,6 @@
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
-            padding-bottom: 70px;
         }
 
         .app-header {
@@ -289,41 +301,148 @@
             opacity: 0.9;
         }
 
-        .nav-tabs {
+        .side-menu-overlay {
             position: fixed;
-            bottom: 0;
+            top: 0;
             left: 0;
             right: 0;
-            background: var(--card);
-            display: flex;
-            border-top: 1px solid var(--border);
-            z-index: 1000;
-            min-height: 56px;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1001;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
-        .nav-tab {
-            flex: 1;
-            padding: 10px 6px;
-            background: none;
-            border: none;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--text-light);
-            cursor: pointer;
+        .side-menu-overlay.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 280px;
+            height: 100vh;
+            background: var(--card);
+            z-index: 1002;
+            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 2px;
+            box-shadow: -4px 0 15px rgba(0,0,0,0.1);
         }
 
-        .nav-tab.active {
+        .side-menu.open {
+            right: 0;
+        }
+
+        .side-menu-header {
+            padding: 20px;
+            background: var(--primary);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .side-menu-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px 0;
+        }
+
+        .side-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .side-menu-item:hover, .side-menu-item:active {
+            background: var(--bg);
+        }
+
+        .side-menu-item.active {
+            color: var(--primary);
+            background: var(--bg);
+            border-left: 4px solid var(--primary);
+        }
+
+        .side-menu-item svg {
+            width: 24px;
+            height: 24px;
+            color: var(--text-light);
+        }
+
+        .side-menu-item.active svg {
             color: var(--primary);
         }
 
-        .nav-tab svg {
-            width: 20px;
-            height: 20px;
+        .side-menu-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 10px 0;
         }
+
+        .tasa-grande-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 60vh;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .tasa-grande-valor {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tasa-grande-label {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .theme-selector {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .theme-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .theme-btn.active {
+            transform: scale(1.1);
+            border-color: var(--text);
+        }
+
+        .theme-btn.light { background: #f8fafc; border: 1px solid #cbd5e1; }
+        .theme-btn.dark { background: #0f172a; }
+        .theme-btn.blue { background: #2563eb; }
+        .theme-btn.verde { background: #10b981; }
+        .theme-btn.rojo { background: #ef4444; }
+        .theme-btn.purpura { background: #8b5cf6; }
+        .theme-btn.naranja { background: #f97316; }
 
         .inventory-form {
             background: var(--card);
@@ -835,18 +954,62 @@
 </head>
 <body>
     <header class="app-header">
-        <h1>🛒 Carrito SV</h1>
-        <div style="display: flex; align-items: center; gap: 8px;">
-            <div class="rate-display" id="rateDisplay" style="cursor: pointer;">Bs 481,22</div>
-            <button id="refreshRateBtn" style="background: rgba(255,255,255,0.2); border: none; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                    <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"></path>
-                </svg>
-            </button>
-        </div>
+        <h1 id="headerTitle">🛒 Carrito de Compras Rojita</h1>
+        <button id="menuToggleBtn" style="background: none; border: none; color: white; cursor: pointer; padding: 4px;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 12h18M3 6h18M3 18h18"></path>
+            </svg>
+        </button>
     </header>
 
-    <div id="facturacion" class="tab-content active">
+    <div class="side-menu-overlay" id="sideMenuOverlay"></div>
+    <div class="side-menu" id="sideMenu">
+        <div class="side-menu-header">
+            🛒 Menú Principal
+        </div>
+        <div class="side-menu-items">
+            <a class="side-menu-item active" data-tab="tasa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path></svg>
+                Tasa del día
+            </a>
+            <a class="side-menu-item" data-tab="facturacion">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                Facturación
+            </a>
+            <a class="side-menu-item" data-tab="historial">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                Historial
+            </a>
+            <a class="side-menu-item" data-tab="inventario">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                Inventario
+            </a>
+            <a class="side-menu-item" data-tab="instrucciones">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Instrucciones
+            </a>
+            <div class="side-menu-divider"></div>
+            <a class="side-menu-item" data-tab="opciones">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"></path></svg>
+                Opciones
+            </a>
+        </div>
+    </div>
+
+    <div id="tasa" class="tab-content active">
+        <div class="tasa-grande-container">
+            <div class="tasa-grande-label">Tasa de Cambio del Día</div>
+            <div class="tasa-grande-valor" id="tasaGrandeValor" title="Toca para editar" style="cursor:pointer;">Bs 0,00</div>
+            <div style="display:flex; gap:12px; align-items:center;">
+                <button class="btn btn-secondary" id="tasaRefreshBtn" style="padding: 10px 16px; display:flex; align-items:center; gap:8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"></path></svg>
+                    Actualizar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="facturacion" class="tab-content">
         <div class="search-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="11" cy="11" r="8"></circle>
@@ -1005,32 +1168,51 @@
         </div>
     </div>
 
-    <nav class="nav-tabs">
-        <button class="nav-tab active" data-tab="facturacion">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-            </svg>
-            Facturación
-        </button>
-        <button class="nav-tab" data-tab="historial">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-            </svg>
-            Historial
-        </button>
-        <button class="nav-tab" data-tab="inventario">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-            </svg>
-            Inventario
-        </button>
-        <button class="nav-tab" data-tab="instrucciones">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            Instrucciones
-        </button>
-    </nav>
+    <div id="opciones" class="tab-content">
+        <div class="instructions-content">
+            <div class="instructions-section">
+                <h3>🎨 Personalización</h3>
+                
+                <div class="form-group">
+                    <label>Nombre de la Aplicación</label>
+                    <div style="display:flex; gap:8px;">
+                        <input type="text" id="appNameInput" placeholder="Ej: Carrito de Compras Rojita" value="Carrito de Compras Rojita">
+                        <button class="btn btn-primary" id="saveAppNameBtn" style="width:auto; padding: 12px 16px;">Guardar</button>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 20px;">
+                    <label>Tema de Colores</label>
+                    <div class="theme-selector" id="themeSelector">
+                        <button class="theme-btn light" data-theme-val="light" title="Claro"></button>
+                        <button class="theme-btn dark" data-theme-val="dark" title="Oscuro"></button>
+                        <button class="theme-btn blue" data-color-val="blue" title="Azul"></button>
+                        <button class="theme-btn verde" data-color-val="verde" title="Verde"></button>
+                        <button class="theme-btn rojo" data-color-val="rojo" title="Rojo"></button>
+                        <button class="theme-btn purpura" data-color-val="purpura" title="Púrpura"></button>
+                        <button class="theme-btn naranja" data-color-val="naranja" title="Naranja"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <h3>💰 Impuestos (I.V.A.)</h3>
+                
+                <div class="form-group" style="display:flex; align-items:center; gap:12px;">
+                    <input type="checkbox" id="ivaToggle" style="width: 24px; height: 24px;">
+                    <label style="margin: 0; cursor: pointer;" for="ivaToggle">Aplicar I.V.A. a la facturación</label>
+                </div>
+                
+                <div class="form-group" id="ivaPercentageGroup" style="display:none; margin-top: 12px;">
+                    <label>Porcentaje de I.V.A. (%)</label>
+                    <div style="display:flex; gap:8px;">
+                        <input type="number" id="ivaPercentageInput" value="16" min="0" max="100" step="0.1">
+                        <button class="btn btn-primary" id="saveIvaBtn" style="width:auto; padding: 12px 16px;">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="modal" id="editModal">
         <div class="modal-content">
@@ -1089,9 +1271,15 @@
             history: [],
             exchangeRate: 481.22,
             editingIndex: null,
+            theme: 'light',
+            themeColor: 'blue',
+            appName: 'Carrito de Compras Rojita',
+            ivaEnabled: false,
+            ivaPercentage: 16,
 
             init() {
                 this.loadData();
+                this.applySettings();
                 this.bindEvents();
                 this.render();
                 this.fetchExchangeRate(); // Actualizar tasa al abrir la app
@@ -1102,6 +1290,7 @@
                 const savedInvoice = localStorage.getItem('carrito_invoice');
                 const savedRate = localStorage.getItem('carrito_rate');
                 const savedHistory = localStorage.getItem('carrito_history');
+                const savedSettings = localStorage.getItem('carrito_settings');
 
                 if (savedInventory) {
                     this.inventory = JSON.parse(savedInventory);
@@ -1116,6 +1305,14 @@
                     const rateData = JSON.parse(savedRate);
                     this.exchangeRate = rateData.rate;
                 }
+                if (savedSettings) {
+                    const settings = JSON.parse(savedSettings);
+                    this.theme = settings.theme || 'light';
+                    this.themeColor = settings.themeColor || 'blue';
+                    this.appName = settings.appName || 'Carrito de Compras Rojita';
+                    this.ivaEnabled = settings.ivaEnabled || false;
+                    this.ivaPercentage = settings.ivaPercentage || 16;
+                }
                 this.updateRateDisplay();
             },
 
@@ -1123,6 +1320,39 @@
                 localStorage.setItem('carrito_inventory', JSON.stringify(this.inventory));
                 localStorage.setItem('carrito_invoice', JSON.stringify(this.invoice));
                 localStorage.setItem('carrito_history', JSON.stringify(this.history));
+            },
+
+            saveSettings() {
+                localStorage.setItem('carrito_settings', JSON.stringify({
+                    theme: this.theme,
+                    themeColor: this.themeColor,
+                    appName: this.appName,
+                    ivaEnabled: this.ivaEnabled,
+                    ivaPercentage: this.ivaPercentage
+                }));
+            },
+
+            applySettings() {
+                document.body.setAttribute('data-theme', this.theme);
+                if (this.themeColor && this.themeColor !== 'blue') {
+                    document.body.setAttribute('data-color', this.themeColor);
+                } else {
+                    document.body.removeAttribute('data-color');
+                }
+
+                document.getElementById('headerTitle').textContent = `🛒 ${this.appName}`;
+                document.getElementById('appNameInput').value = this.appName;
+                
+                document.getElementById('ivaToggle').checked = this.ivaEnabled;
+                document.getElementById('ivaPercentageInput').value = this.ivaPercentage;
+                document.getElementById('ivaPercentageGroup').style.display = this.ivaEnabled ? 'block' : 'none';
+
+                document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
+                const themeBtn = document.querySelector(`.theme-btn[data-theme-val="${this.theme}"]`);
+                if (themeBtn) themeBtn.classList.add('active');
+                
+                const colorBtn = document.querySelector(`.theme-btn[data-color-val="${this.themeColor}"]`);
+                if (colorBtn) colorBtn.classList.add('active');
             },
 
             saveRate() {
@@ -1184,8 +1414,10 @@
 
             updateRateDisplay() {
                 if (this.exchangeRate > 0) {
-                    document.getElementById('rateDisplay').textContent = 
-                        `Bs ${this.exchangeRate.toLocaleString('es-VE', { minimumFractionDigits: 2 })}`;
+                    const rateDisplay = document.getElementById('tasaGrandeValor');
+                    if (rateDisplay) {
+                        rateDisplay.textContent = `Bs ${this.exchangeRate.toLocaleString('es-VE', { minimumFractionDigits: 2 })}`;
+                    }
                     this.saveRate();
                 }
             },
@@ -1196,20 +1428,73 @@
                 }, 3600000);
             },
 
+            toggleMenu() {
+                const menu = document.getElementById('sideMenu');
+                const overlay = document.getElementById('sideMenuOverlay');
+                menu.classList.toggle('open');
+                overlay.classList.toggle('show');
+            },
+
             bindEvents() {
-                document.querySelectorAll('.nav-tab').forEach(tab => {
+                document.getElementById('menuToggleBtn').addEventListener('click', () => {
+                    this.toggleMenu();
+                });
+
+                document.getElementById('sideMenuOverlay').addEventListener('click', () => {
+                    this.toggleMenu();
+                });
+
+                document.querySelectorAll('.side-menu-item').forEach(tab => {
                     tab.addEventListener('click', () => {
-                        const tabId = tab.dataset.tab.toLowerCase();
-                        this.switchTab(tabId);
+                        if (tab.dataset.tab) {
+                            const tabId = tab.dataset.tab.toLowerCase();
+                            this.switchTab(tabId);
+                            this.toggleMenu();
+                        }
                     });
                 });
 
-                document.getElementById('rateDisplay').addEventListener('click', () => {
+                document.getElementById('tasaGrandeValor').addEventListener('click', () => {
                     this.editRate();
                 });
 
-                document.getElementById('refreshRateBtn').addEventListener('click', () => {
+                document.getElementById('tasaRefreshBtn').addEventListener('click', () => {
                     this.fetchExchangeRate();
+                });
+
+                // Opciones events
+                document.getElementById('saveAppNameBtn').addEventListener('click', () => {
+                    this.appName = document.getElementById('appNameInput').value.trim() || 'Carrito de Compras Rojita';
+                    this.saveSettings();
+                    this.applySettings();
+                    this.showToast('Nombre guardado');
+                });
+
+                document.getElementById('ivaToggle').addEventListener('change', (e) => {
+                    this.ivaEnabled = e.target.checked;
+                    document.getElementById('ivaPercentageGroup').style.display = this.ivaEnabled ? 'block' : 'none';
+                    this.saveSettings();
+                    this.renderInvoice();
+                });
+
+                document.getElementById('saveIvaBtn').addEventListener('click', () => {
+                    this.ivaPercentage = parseFloat(document.getElementById('ivaPercentageInput').value) || 16;
+                    this.saveSettings();
+                    this.renderInvoice();
+                    this.showToast('I.V.A. guardado');
+                });
+
+                document.querySelectorAll('.theme-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        if (btn.dataset.themeVal) {
+                            this.theme = btn.dataset.themeVal;
+                        }
+                        if (btn.dataset.colorVal) {
+                            this.themeColor = btn.dataset.colorVal;
+                        }
+                        this.saveSettings();
+                        this.applySettings();
+                    });
                 });
 
                 document.getElementById('searchInput').addEventListener('input', (e) => {
@@ -1879,10 +2164,45 @@
                     });
                 });
 
+                let subtotalUSD = totalUSD;
+                let ivaUSD = 0;
+                
+                if (this.ivaEnabled) {
+                    ivaUSD = subtotalUSD * (this.ivaPercentage / 100);
+                    totalUSD = subtotalUSD + ivaUSD;
+                }
+                
                 const totalBS = totalUSD * this.exchangeRate;
-                document.getElementById('totalUSD').textContent = `$${totalUSD.toFixed(2)}`;
-                document.getElementById('totalBS').textContent = 
-                    `Bs ${totalBS.toLocaleString('es-VE', { minimumFractionDigits: 2 })}`;
+                
+                let htmlTotals = '';
+                if (this.ivaEnabled) {
+                    htmlTotals += `
+                        <div class="invoice-total-row">
+                            <span class="invoice-total-label">Subtotal USD:</span>
+                            <span class="invoice-total-value">$${subtotalUSD.toFixed(2)}</span>
+                        </div>
+                        <div class="invoice-total-row">
+                            <span class="invoice-total-label">I.V.A (${this.ivaPercentage}%):</span>
+                            <span class="invoice-total-value">$${ivaUSD.toFixed(2)}</span>
+                        </div>
+                    `;
+                }
+                htmlTotals += `
+                    <div class="invoice-total-row">
+                        <span class="invoice-total-label">Total USD:</span>
+                        <span class="invoice-total-value">$${totalUSD.toFixed(2)}</span>
+                    </div>
+                    <div class="invoice-total-row">
+                        <span class="invoice-total-label">Total BS:</span>
+                        <span class="invoice-total-value bs">Bs ${totalBS.toLocaleString('es-VE', { minimumFractionDigits: 2 })}</span>
+                    </div>
+                    <button class="clear-btn" id="clearInvoice">Limpiar Factura</button>
+                `;
+                
+                totalContainer.innerHTML = htmlTotals;
+                document.getElementById('clearInvoice').addEventListener('click', () => {
+                    this.clearInvoice();
+                });
             },
 
             renderInventory() {
